@@ -5,7 +5,11 @@
   "main": "index.html",
   "scripts": {
     "start": "wds",
-    "build": "npx tsc && npx rollup -c && cp style.css build/"
+    "build": "run-s build:*",
+    "build:compile": "tsc",
+    "build:bundle": "rollup -c",
+    "build:copy": "cp style.css build/",
+    "postinstall": "patch-package"
   },
   "keywords": [],
   "author": "",
@@ -26,6 +30,7 @@
     "@rollup/plugin-typescript": "^6.0.0",
     "@web/dev-server": "0.0.10",
     "@web/dev-server-esbuild": "^0.2.4",
+    "npm-run-all": "^4.1.5",
     "patch-package": "^6.2.2",
     "tslib": "^2.0.1",
     "typescript": "^4.0.2"
