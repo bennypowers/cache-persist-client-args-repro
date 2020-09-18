@@ -9,6 +9,7 @@
     "build:compile": "tsc",
     "build:bundle": "rollup -c",
     "build:copy": "cp style.css build/",
+    "build:netlify": "echo \"/*    /index.html    200\" > build/_redirects",
     "postinstall": "patch-package"
   },
   "keywords": [],
