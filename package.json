@@ -1,0 +1,26 @@
+{
+  "name": "cache-persist-client-args-repro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "start": "wds"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@apollo-elements/components": "^1.0.0-alpha.7",
+    "@apollo-elements/lit-apollo": "^3.0.0-alpha.10",
+    "@apollo/client": "^3.2.0",
+    "apollo-cache-persist": "npm:apollo-cache-persist-dev@^0.2.1",
+    "graphql": "^15.3.0",
+    "pwa-helpers": "^0.9.1"
+  },
+  "devDependencies": {
+    "@kocal/rollup-plugin-graphql": "^1.0.0",
+    "@rollup/plugin-commonjs": "^15.0.0",
+    "@web/dev-server": "0.0.10",
+    "@web/dev-server-esbuild": "^0.2.4"
+  }
+}

@@ -1,0 +1,8 @@
+query LaunchesQuery($page: String) {
+  page @client @export(as: "page")
+  launches(limit: 10) {
+    id
+    mission_name
+    selected(page: $page) @client
+  }
+}

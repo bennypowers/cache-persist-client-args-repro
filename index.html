@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apollo Cache Persist Repro</title>
+  <script type="module" src="main.ts"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Reproduction of <code>apollo-cache-persist</code> Bug</h1>
+    <nav><toggle-arg></toggle-arg></nav>
+  </header>
+  <main>
+    <apollo-client data-persist-cache="persist">
+      <h2>Persisted Cache</h2>
+      <query-element></query-element>
+    </apollo-client>
+
+    <apollo-client data-persist-cache="no-persist">
+      <h2>Non-Persisted Cache</h2>
+      <query-element></query-element>
+    </apollo-client>
+
+    <p>
+      Try setting some state on both views (with and without the <code>page</code> arg),
+      then toggle back and forth between views. Hit the <code>reload</code> button,
+      then toggle views back and forth again, and note how the persisted cache doesn't behave
+      as it did before reloading.
+    </p>
+  </main>
+  <footer>
+    <button onclick="localStorage.clear()">Clear LocalStorage</button>
+    <button onclick="location.reload()">Reload</button>
+  </footer>
+</body>
+</html>
