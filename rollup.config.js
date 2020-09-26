@@ -1,4 +1,4 @@
-import graphql from '@kocal/rollup-plugin-graphql';
+import graphql from '@apollo-elements/rollup-plugin-graphql';
 import commonjs from '@rollup/plugin-commonjs';
 import replace from '@rollup/plugin-replace';
 import resolve from '@rollup/plugin-node-resolve';
@@ -10,6 +10,9 @@ import path from 'path';
 const indexHtmlContent =
   fs.readFileSync(path.join(__dirname, './index.html'), 'utf-8');
 
+const DEPENDENCIES =
+  require('./package.json').dependencies
+
 export default {
   input: 'main.js',
   output: {
@@ -17,7 +20,7 @@ export default {
     format: 'es'
   },
   plugins: [
-    replace({ DEPENDENCIES: require('./package.json').dependencies }),
+    replace({ DEPENDENCIES }),
     resolve(),
     commonjs(),
     graphql(),
