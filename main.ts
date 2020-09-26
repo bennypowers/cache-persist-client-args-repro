@@ -3,7 +3,7 @@ import type { ApolloClientElement } from '@apollo-elements/components/apollo-cli
 import '@apollo-elements/components/apollo-client'
 
 import { ApolloClient, HttpLink, InMemoryCache } from "@apollo/client/core";
-import { persistCacheSync } from "apollo-cache-persist";
+import { persistCacheSync } from "apollo3-cache-persist";
 import { pageVar } from './router';
 
 import './toggle-arg';

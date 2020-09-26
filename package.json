@@ -19,7 +19,7 @@
     "@apollo-elements/components": "^1.0.0-alpha.7",
     "@apollo-elements/lit-apollo": "^3.0.0-alpha.10",
     "@apollo/client": "^3.2.0",
-    "apollo-cache-persist": "npm:apollo-cache-persist-dev@^0.2.1",
+    "apollo3-cache-persist": "^0.4.0",
     "graphql": "^15.3.0",
     "pwa-helpers": "^0.9.1"
   },
