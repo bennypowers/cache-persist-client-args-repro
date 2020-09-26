@@ -1,10 +1,13 @@
 import { fromRollup } from '@web/dev-server-rollup';
 import { esbuildPlugin } from '@web/dev-server-esbuild';
+import { readFileSync } from 'fs';
 
 import _commonjs from '@rollup/plugin-commonjs';
-import _graphql from '@kocal/rollup-plugin-graphql';
+import _replace from '@rollup/plugin-replace';
+import _graphql from '@apollo-elements/rollup-plugin-graphql';
 
 const graphql = fromRollup(_graphql);
+const replace = fromRollup(_replace);
 const commonjs = fromRollup(_commonjs);
 
 const cjsIncludes = [
@@ -14,6 +17,9 @@ const cjsIncludes = [
   '**/graphql-tag/**/*',
   '**/node_modules/zen-observable/**/*',
 ];
+
+const DEPENDENCIES =
+  JSON.stringify(JSON.parse(readFileSync('./package.json', 'utf-8')).dependencies);
 
 export default /** @type {import('@web/dev-server').DevServerConfig} */ {
   nodeResolve: true,
@@ -29,5 +35,6 @@ export default /** @type {import('@web/dev-server').DevServerConfig} */ {
     esbuildPlugin({ ts: true }),
     commonjs({ include: cjsIncludes }),
     graphql(),
+    replace({ DEPENDENCIES }),
   ],
 };

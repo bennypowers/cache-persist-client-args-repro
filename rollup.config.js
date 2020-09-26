@@ -1,5 +1,6 @@
 import graphql from '@kocal/rollup-plugin-graphql';
 import commonjs from '@rollup/plugin-commonjs';
+import replace from '@rollup/plugin-replace';
 import resolve from '@rollup/plugin-node-resolve';
 import html from '@open-wc/rollup-plugin-html';
 
@@ -16,6 +17,7 @@ export default {
     format: 'es'
   },
   plugins: [
+    replace({ DEPENDENCIES: require('./package.json').dependencies }),
     resolve(),
     commonjs(),
     graphql(),

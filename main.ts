@@ -1,6 +1,7 @@
 import type { ApolloClientElement } from '@apollo-elements/components/apollo-client';
 
-import '@apollo-elements/components/apollo-client'
+import '@apollo-elements/components/apollo-client';
+import '@power-elements/json-viewer/json-viewer';
 
 import { ApolloClient, HttpLink, InMemoryCache } from "@apollo/client/core";
 import { persistCacheSync } from "apollo3-cache-persist";
@@ -95,6 +96,9 @@ function setupClient(element: ApolloClientElement) {
 }
 
 async function main() {
+  document.getElementById('dependencies').textContent =
+    // @ts-expect-error: build-time interpolation
+    `${JSON.stringify(DEPENDENCIES)}`;
   document.querySelectorAll('apollo-client')
     .forEach(setupClient)
 }

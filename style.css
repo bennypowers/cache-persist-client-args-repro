@@ -23,6 +23,10 @@ code {
   padding: 2px 4px;
 }
 
+json-viewer {
+  background: black;
+}
+
 @media(min-width: 620px) {
   main {
     grid-template-columns: 1fr 1fr;
