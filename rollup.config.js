@@ -11,7 +11,7 @@ const indexHtmlContent =
   fs.readFileSync(path.join(__dirname, './index.html'), 'utf-8');
 
 const DEPENDENCIES =
-  require('./package.json').dependencies
+  JSON.stringify(require('./package.json').dependencies);
 
 export default {
   input: 'main.js',

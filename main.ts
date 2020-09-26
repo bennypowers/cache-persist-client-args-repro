@@ -96,9 +96,7 @@ function setupClient(element: ApolloClientElement) {
 }
 
 async function main() {
-  document.getElementById('dependencies').textContent =
-    // @ts-expect-error: build-time interpolation
-    `${JSON.stringify(DEPENDENCIES)}`;
+  document.getElementById('dependencies').textContent = `DEPENDENCIES`;
   document.querySelectorAll('apollo-client')
     .forEach(setupClient)
 }
